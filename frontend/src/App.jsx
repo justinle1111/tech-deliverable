@@ -1,5 +1,6 @@
 import "./App.css";
 import { useState, useEffect} from 'react';
+import QuoteList from './components/QuoteList'
 
 function App() {
 	const [quotes, setQuotes] = useState([])
@@ -33,9 +34,7 @@ function App() {
 			<h2>Previous Quotes</h2>
 			{/* TODO: Display the actual quotes from the database */}
 			<div className="messages">
-				<p>Peter Anteater</p>
-				<p>Zot Zot Zot!</p>
-				<p>Every day</p>
+				{quotes && <QuoteList quotes={quotes} title="All Quotes!" />}
 			</div>
 		</div>
 	);
