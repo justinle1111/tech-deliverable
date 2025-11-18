@@ -5,6 +5,10 @@ import QuoteList from './components/QuoteList'
 function App() {
 	const [quotes, setQuotes] = useState([])
 
+	const handleClick = () => {
+		console.log("button is clicked");
+	}
+
 	useEffect(() => {
 		fetch('api/quotes')
 		 .then(res => {
@@ -16,6 +20,7 @@ function App() {
 		 })
 
 	}, []);
+
 	return (
 		<div className="App">
 			{/* TODO: include an icon for the quote book */}
@@ -30,6 +35,13 @@ function App() {
 				<input type="text" name="message" id="input-message" required />
 				<button type="submit">Submit</button>
 			</form>
+			<div className="Button-Group">
+				<button onClick={handleClick}>Button1</button>
+				<button onClick={handleClick}>Button2</button>
+				<button onClick={handleClick}>Button3</button>
+
+				<button onClick={handleClick}>Button4</button>
+			</div>
 
 			<h2>Previous Quotes</h2>
 			{/* TODO: Display the actual quotes from the database */}
