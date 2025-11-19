@@ -1,5 +1,5 @@
 from contextlib import asynccontextmanager
-from datetime import datetime, time
+from datetime import datetime, timedelta
 from typing import AsyncIterator
 
 from fastapi import FastAPI, Form, status
@@ -57,10 +57,10 @@ def get_quotes(max_age: int | None = None) -> list[Quote]:
     if max_age is None:
         return database["quotes"]
 
-    cutoff_time = datetime.now().timestamp() - time.delta(days = max_age)
+    cutoff_time = datetime.now() - timedelta(days = max_age)
 
     filtered_quotes = [quote for quote in database["quotes"] 
-                       if datetime.fromioformat (quote["time"]) >= cutoff_time]
+                       if datetime.fromisoformat(quote["time"]) >= cutoff_time]
 
     return filtered_quotes
 
