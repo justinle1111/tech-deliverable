@@ -1,8 +1,8 @@
-const QuoteList = () => {
+const QuoteList = ({quotes}) => {
     return (
         <div className="quote-list">
-            {quotes.map((quote) => (
-                <div className="quote-preview" key={quote.name}>
+            {quotes.map((quote, index) => (
+                <div className="quote-preview" key={index}>
                     <h2> {quote.message}</h2>
                     <p> Written by { quote.name }</p>
                 </div>
