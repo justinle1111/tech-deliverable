@@ -58,8 +58,9 @@ def get_quotes(max_age: int | None = None) -> list[Quote]:
         return database["quotes"]
 
     cutoff_time = datetime.now().timestamp() - time.delta(days = max_age)
+
     filtered_quotes = [quote for quote in database["quotes"] 
-                       if datetime.fromioformat (quote["time"]) >= max_age]
+                       if datetime.fromioformat (quote["time"]) >= cutoff_time]
 
     return filtered_quotes
 
