@@ -4,22 +4,31 @@ import QuoteList from './components/QuoteList'
 
 function App() {
 	const [quotes, setQuotes] = useState([])
+	const [filter, setFilter] = useState('all')
 
-	const handleClick = () => {
-		console.log("button is clicked");
+	const handleFilterClick = (selected) => {
+		setFilter(selected);
 	}
 
 	useEffect(() => {
-		fetch('api/quotes')
+		let url = 'api/quotes'
+
+		if (filter == 'day') url += '?max_age=1'
+		else if (filter == 'week') url += '?max_age=7'
+		else if (filter == 'month') url += '?max_age=30'
+		else if (filter == 'year') url += '?max_age=365'
+		
+
+		fetch(url)
 		 .then(res => {
 			return res.json()
 		 })
 		 .then(data => {
-			console.log("Fetched Data: ", data)
 			setQuotes(data);
 		 })
+		 .catch((err) => console.error("Error: ", err));
 
-	}, []);
+	}, [filter]);
 
 	return (
 		<div className="App">
@@ -36,11 +45,11 @@ function App() {
 				<button type="submit">Submit</button>
 			</form>
 			<div className="Button-Group">
-				<button onClick={handleClick}>Button1</button>
-				<button onClick={handleClick}>Button2</button>
-				<button onClick={handleClick}>Button3</button>
-
-				<button onClick={handleClick}>Button4</button>
+				<button onClick={ () => handleFilterClick('year')}>Year</button>
+				<button onClick={() => handleFilterClick('month')}>Month</button>
+				<button onClick={() => handleFilterClick('week')}>Week</button>
+				<button onClick={() => handleFilterClick('day')}>Day</button>
+				<button onClick={() => handleFilterClick()}>All</button>
 			</div>
 
 			<h2>Previous Quotes</h2>
