@@ -5,6 +5,7 @@ const QuoteList = ({quotes}) => {
                 <div className="quote-preview" key={index}>
                     <h2> {quote.message}</h2>
                     <p> Written by { quote.name }</p>
+                    <p> Created at { quote.time } </p>
                 </div>
             ))}
         </div>
