@@ -9,7 +9,7 @@ function App() {
 	const handleFilterClick = (selected) => {
 		setFilter(selected);
 	}
-
+	
 	useEffect(() => {
 		let url = 'api/quotes'
 
@@ -44,13 +44,8 @@ function App() {
 				<input type="text" name="message" id="input-message" required />
 				<button type="submit">Submit</button>
 			</form>
-			<div className="Button-Group">
-				<button onClick={ () => handleFilterClick('year')}>Year</button>
-				<button onClick={() => handleFilterClick('month')}>Month</button>
-				<button onClick={() => handleFilterClick('week')}>Week</button>
-				<button onClick={() => handleFilterClick('day')}>Day</button>
-				<button onClick={() => handleFilterClick()}>All</button>
-			</div>
+			
+			<FilterButtons onFilterChange={setFilter} />
 
 			<h2>Previous Quotes</h2>
 			{/* TODO: Display the actual quotes from the database */}
