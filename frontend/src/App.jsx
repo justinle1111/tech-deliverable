@@ -1,6 +1,7 @@
 import "./App.css";
 import { useState, useEffect} from 'react';
 import QuoteList from './components/QuoteList'
+import FilterButtons from './components/FilterButtons'
 
 function App() {
 	const [quotes, setQuotes] = useState([])
