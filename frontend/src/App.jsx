@@ -3,6 +3,7 @@ import { useState, useEffect} from 'react';
 import QuoteList from './components/QuoteList'
 import QuoteSubmission from './components/QuoteSubmission'
 import FilterButtons from './components/FilterButtons'
+import QuoteLogo from './components/QuoteLogo'
 
 function App() {
 	const [quotes, setQuotes] = useState([])
@@ -36,6 +37,7 @@ function App() {
 	return (
 		<div className="App">
 			{/* TODO: include an icon for the quote book */}
+			<QuoteLogo/>
 			<h1>Hack at UCI Tech Deliverable</h1>
 
 			<h2>Submit a quote</h2>
