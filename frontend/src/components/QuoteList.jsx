@@ -1,11 +1,10 @@
 const QuoteList = ({quotes}) => {
     return (
-        <div className="quote-list">
+        <div className="quoteList">
             {quotes.map((quote, index) => (
-                <div className="quote-preview" key={index}>
-                    <h2> {quote.message}</h2>
-                    <p> Written by { quote.name }</p>
-                    <p> Created at { quote.time } </p>
+                <div className="quotePreview" key={index}>
+                    <p className="quoteMessage"> {quote.message}</p>
+                    <p className="quoteMetadata"> - { quote.name } on {new Date( quote.time).toLocaleDateString()}</p>
                 </div>
             ))}
         </div>
