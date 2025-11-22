@@ -37,18 +37,19 @@ function App() {
 	return (
 		<div className="App">
 			{/* TODO: include an icon for the quote book */}
-			<QuoteLogo/>
-			<h1>Hack at UCI Tech Deliverable</h1>
 
-			<h2>Submit a quote</h2>
+			<h1 className="header"> <QuoteLogo/> Hack at UCI Tech Deliverable</h1>
+
+			<div className="submission">
+				<h2 className="submissionTitle">Submit a quote</h2>
 			{/* TODO: implement custom form submission logic to not refresh the page */}
-
-			<QuoteSubmission onAddQuote={handleAddQuote} />
+				<QuoteSubmission onAddQuote={handleAddQuote} />
+			</div>
 			
-			
-			<FilterButtons onFilterChange={setFilter} />
+			<div className="filterButtons">
+				<FilterButtons onFilterChange={setFilter} />
+			</div>
 
-			<h2>Previous Quotes</h2>
 			{/* TODO: Display the actual quotes from the database */}
 			<div className="messages">
 				{quotes && <QuoteList quotes={quotes} title="All Quotes!" />}
