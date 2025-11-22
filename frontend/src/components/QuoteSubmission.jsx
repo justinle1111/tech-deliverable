@@ -25,19 +25,19 @@ function QuoteSubmission({ onAddQuote }) {
 
     return (
         <form onSubmit={handleSubmit}>
-            <label htmlFor="input-name">Name</label>
             <input
                 type="text"
                 id="input-name"
+                placeholder="Name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
             />
 
-            <label htmlFor="input-message">Quote</label>
             <input
                 type="text"
                 id="input-message"
+                placeholder="Quote"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 required
