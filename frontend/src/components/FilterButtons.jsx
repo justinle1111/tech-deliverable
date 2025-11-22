@@ -1,6 +1,6 @@
 function FilterButtons( {onFilterChange }) {
     return (
-        <div className="Button-Group">
+        <div className="buttonGroup">
 			<button onClick={() => onFilterChange('day')}>From Today</button>
 			<button onClick={() => onFilterChange('week')}>Past Week</button>
 			<button onClick={() => onFilterChange('month')}>Past Month</button>
