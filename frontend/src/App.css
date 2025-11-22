@@ -13,3 +13,52 @@ body {
     text-align: center;
   
 }
+
+.header {
+    text-align: center;
+    font-size: 40px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.header img {
+    height: 1em;
+    width: auto;
+    vertical-align: middle;
+}
+
+.submission {
+    background: white;
+    margin: 0 auto 24px auto;
+    gap: 12px;
+}
+
+input, textarea {
+    width: 80%;
+    padding: 12px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    font-family: inherit;
+  }
+  
+  textarea {
+    resize: none;
+    min-height: 80px;
+  }
+  
+.submitButton {
+    display: block;
+    width: 80%;
+    margin: 12px auto 0 auto;
+    padding: 12px;;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    background: cornflowerblue;
+    cursor: pointer;
+    color: white;
+}
