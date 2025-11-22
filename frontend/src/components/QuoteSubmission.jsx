@@ -43,7 +43,7 @@ function QuoteSubmission({ onAddQuote }) {
                 required
             />
 
-            <button type="submit">Submit</button>
+            <button type="submit" className="submitButton">Post</button>
         </form>
     )
     
