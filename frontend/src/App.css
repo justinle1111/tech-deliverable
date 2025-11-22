@@ -62,3 +62,25 @@ input, textarea {
     cursor: pointer;
     color: white;
 }
+
+button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  
+  button:hover {
+    opacity: 0.9;
+  }
+  
+  .filterButtons button {
+    flex: 1;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 10px 20px;
+    font-weight: 500;
+    cursor: pointer;
+  }
