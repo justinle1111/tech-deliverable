@@ -61,6 +61,6 @@ def get_quotes(max_age: int | None = None) -> list[Quote]:
 
     return [
         quote for quote in database["quotes"]
-        if datetime.fromisoformat(quote.time) >= cutoff_time
+        if datetime.fromisoformat(quote["time"]) >= cutoff_time
     ]
 
