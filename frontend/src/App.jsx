@@ -41,6 +41,26 @@ function App() {
 		fetchQuotes();
 	};
 
+	const timeAgo = (timestamp) => {
+		const now = new Date();
+		const past = new Date(timestamp);
+		const diff = (now - past) / 1000;
+	
+		if (diff < 60) {
+			return `${Math.floor(diff)} seconds ago`;
+		} else if (diff < 3600) {
+			return `${Math.floor(diff / 60)} minutes ago`;
+		} else if (diff < 86400) {
+			return `${Math.floor(diff / 3600)} hours ago`;
+		} else if (diff < 2592000) {
+			return `${Math.floor(diff / 86400)} days ago`;
+		} else if (diff < 31536000) {
+			return `${Math.floor(diff / 2592000)} months ago`;
+		} else {
+			return `${Math.floor(diff / 31536000)} years ago`;
+		}
+	};
+
 	return (
 		<div className="App">
 			<h1 className="header"> <QuoteLogo/> Hack at UCI Tech Deliverable</h1>
@@ -83,7 +103,7 @@ function App() {
 					<div key={index}>
 						<p><strong>{quote.name}</strong></p>
 						<p>{quote.message}</p>
-						<p>{new Date(quote.time).toLocaleString()}</p>
+						<p>{timeAgo(quote.time)}</p>
 					</div>
 				))}
 			</div>
