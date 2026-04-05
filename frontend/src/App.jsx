@@ -1,30 +1,34 @@
 import "./App.css";
+import QuoteLogo from "./components/QuoteLogo";
+import QuoteForm from "./components/QuoteForm";
+import QuoteList from "./components/QuoteList";
+import FilterButtons from "./components/FilterButtons";
+import useQuotes from "./hooks/UseQuotes";
 
 function App() {
-	return (
-		<div className="App">
-			{/* TODO: include an icon for the quote book */}
-			<h1>Hack at UCI Tech Deliverable</h1>
+  const { quotes, fetchQuotes, addQuote } = useQuotes();
 
-			<h2>Submit a quote</h2>
-			{/* TODO: implement custom form submission logic to not refresh the page */}
-			<form action="/api/quote" method="post">
-				<label htmlFor="input-name">Name</label>
-				<input type="text" name="name" id="input-name" required />
-				<label htmlFor="input-message">Quote</label>
-				<input type="text" name="message" id="input-message" required />
-				<button type="submit">Submit</button>
-			</form>
+  return (
+    <div className="App">
+      <h1 className="header">
+        <QuoteLogo /> Hack at UCI Tech Deliverable
+      </h1>
 
-			<h2>Previous Quotes</h2>
-			{/* TODO: Display the actual quotes from the database */}
-			<div className="messages">
-				<p>Peter Anteater</p>
-				<p>Zot Zot Zot!</p>
-				<p>Every day</p>
-			</div>
-		</div>
-	);
+      <div className="submission">
+        <h2 className="submissionTitle">Submit a quote</h2>
+
+        <QuoteForm onSubmit={addQuote} />
+      </div>
+
+      <div className="filterButtons">
+        <FilterButtons onFilter={fetchQuotes} />
+      </div>
+
+      <div className="messages">
+        {quotes && <QuoteList quotes={quotes} title="All Quotes!" />}
+      </div>
+    </div>
+  );
 }
 
 export default App;
